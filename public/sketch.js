@@ -1,7 +1,12 @@
 let video; // Create a KNN classifier
 const knnClassifier = ml5.KNNClassifier();
 let featureExtractor;
-
+let constraints = {
+  video: {
+    facingMode: "environment",
+  },
+  audio: false,
+};
 async function preload() {
   featureExtractor = ml5.featureExtractor("MobileNet", modelReady);
   const KNNclass = window.localStorage.getItem("KNNclass");
@@ -11,7 +16,7 @@ async function preload() {
 }
 
 function setup() {
-  video = createCapture(VIDEO);
+  video = createCapture(constraints);
   video.hide();
   createButtons();
 }

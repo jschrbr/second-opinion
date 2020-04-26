@@ -14,7 +14,7 @@
 
 ## Usage
 
-> Just open the app, point the camera at something you like or dont like and hold down the appropriate button. The application will begin to learn your likes and dislikes, and constantly predict whether you like what it sees. CDNs are used to load librarys, all training and data remains on the device, and your custom trained classifier is kept in `localStorage`.
+> Just open the app, point the camera at something you like or dont like and hold down the appropriate button. The application will begin to learn your likes and dislikes, and constantly predict whether you like what it sees. All training and data sets remains on the device, and your custom trained classifier is kept in `localStorage`.
 
 > <div align="center">
 > <img alt="Version" src="./public/seco_uncut.gif" />

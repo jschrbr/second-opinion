@@ -1,17 +1,17 @@
-let video; // Create a KNN classifier
 const knnClassifier = ml5.KNNClassifier();
-let featureExtractor;
-let constraints = {
+const constraints = {
   video: {
     facingMode: "environment",
   },
   audio: false,
 };
+let featureExtractor;
+let video; // Create a KNN classifier
+
 async function preload() {
   featureExtractor = ml5.featureExtractor("MobileNet", modelReady);
   const KNNclass = window.localStorage.getItem("KNNclass");
   const KNNobj = JSON.parse(KNNclass);
-  // console.log(KNNobj);
   await knnClassifier.load(KNNobj);
 }
 
@@ -22,10 +22,10 @@ function setup() {
 }
 
 function draw() {
-  drawingContext.shadowOffsetX = 5;
-  drawingContext.shadowOffsetY = -5;
   video.parent("videoContainer");
   wid = windowWidth * 0.8;
+  max = 480;
+  wid = wid > max ? max : wid;
   video.size(wid, wid);
 }
 

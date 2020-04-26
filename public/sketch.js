@@ -89,14 +89,14 @@ function createButtons() {
     let like = setInterval(() => {
       addExample("NoLike");
     }, 300);
-    buttonLike.mouseReleased(() => clearInterval(like));
+    buttonNoLike.mouseReleased(() => clearInterval(like));
   });
 
   buttonNoLike.touchStarted(function () {
     let like = setInterval(() => {
       addExample("NoLike");
     }, 300);
-    buttonLike.touchEnded(() => clearInterval(like));
+    buttonNoLike.touchEnded(() => clearInterval(like));
   });
 
   buttonClearAll = select("#clearAll");
@@ -114,10 +114,13 @@ function gotResults(err, result) {
     const labels = Object.keys(confidences);
     // result.label is the label that has the highest confidence
     id = result.label;
-    if (result.label) {
+    if (result.classIndex !== undefined) {
+      select("#result").html(id);
+      select("#confidence").html(`${confidences[id] * 100} %`);
+    } else {
       select("#result").html(labels[id]);
       select("#confidence").html(
-        `${(result.confidences[result.label] * 100).toFixed(2)} %`
+        `${(result.confidences[id] * 100).toFixed(2)} %`
       );
     }
   }

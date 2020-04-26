@@ -121,7 +121,7 @@ function gotResults(err, result) {
     id = result.label;
     if (result.classIndex !== undefined) {
       select("#result").html(id);
-      select("#confidence").html(`${confidences[id] * 100} %`);
+      select("#confidence").html(`${(confidences[id] * 100).toFixed(2)} %`);
     } else {
       select("#result").html(labels[id]);
       select("#confidence").html(

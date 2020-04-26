@@ -77,6 +77,12 @@ function createButtons() {
     }, 300);
     buttonLike.mouseReleased(() => clearInterval(like));
   });
+  buttonLike.touchStarted(function () {
+    let like = setInterval(() => {
+      addExample("Like");
+    }, 300);
+    buttonLike.touchEnded(() => clearInterval(like));
+  });
 
   buttonNoLike = select("#addClassNoLike");
   buttonNoLike.mousePressed(function () {
@@ -84,6 +90,13 @@ function createButtons() {
       addExample("NoLike");
     }, 300);
     buttonLike.mouseReleased(() => clearInterval(like));
+  });
+
+  buttonNoLike.touchStarted(function () {
+    let like = setInterval(() => {
+      addExample("NoLike");
+    }, 300);
+    buttonLike.touchEnded(() => clearInterval(like));
   });
 
   buttonClearAll = select("#clearAll");
